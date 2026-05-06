@@ -1,4 +1,5 @@
 import ScrollInit from "@/components/ScrollInit";
+import HeroVideo from "@/components/HeroVideo";
 
 /* ── DATA ─────────────────────────────────────────────────── */
 
@@ -169,27 +170,7 @@ export default function Home() {
           aria-label="Hero"
         >
           {/* Background video at 10% opacity */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              opacity: 0.10,
-              pointerEvents: "none",
-            }}
-          >
-            <source
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4"
-              type="video/mp4"
-            />
-          </video>
+          <HeroVideo src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_171521_25968ba2-b594-4b32-aab7-f6b69398a6fa.mp4" />
 
           <div className="section-inner" style={{ position: "relative", zIndex: 1, paddingTop: "var(--sp-20)", paddingBottom: "var(--sp-20)" }}>
             <span className="hero-eyebrow" data-hero="1">
