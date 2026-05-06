@@ -781,3 +781,181 @@ textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.5; }
   .section-inner   { padding: 0 var(--sp-10); }
   .problem-headline { font-size: clamp(32px, 4vw, 52px); }
 }
+
+/* ============================================================
+   13 — SERVICES SPLIT STICKY
+   ============================================================ */
+.services-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+
+.services-col-left {
+  position: sticky;
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  overflow: hidden;
+}
+
+.service-img-slot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+  pointer-events: none;
+}
+.service-img-slot.is-active { opacity: 1; }
+
+.service-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(28,28,28,.08) 0%, rgba(28,28,28,.55) 100%);
+  z-index: 1;
+}
+
+.service-img-tag {
+  position: absolute;
+  bottom: var(--sp-6);
+  left: var(--sp-6);
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(240,232,218,.75);
+  background: rgba(28,28,28,.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(59,58,56,.55);
+  padding: 6px 14px;
+}
+
+.services-col-right { border-left: 1px solid var(--border); }
+
+.service-row {
+  position: sticky;
+  top: var(--nav-height);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-primary);
+}
+.service-row:last-child { border-bottom: none; }
+
+.service-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-5);
+  display: block;
+}
+
+.service-name {
+  font-size: clamp(var(--text-3xl), 2.8vw, var(--text-6xl));
+  font-weight: 400;
+  letter-spacing: -.04em;
+  line-height: 1.1em;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-6);
+}
+
+.service-description {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  line-height: 1.75em;
+  max-width: 420px;
+}
+
+/* ============================================================
+   14 — SERVICES CAROUSEL (CTA)
+   ============================================================ */
+.cta-carousel-wrap {
+  padding: 80px var(--sp-10) 40px;
+  max-width: var(--content-w);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.carousel-overflow { overflow: hidden; width: 100%; }
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 600ms var(--ease);
+}
+
+.carousel-card {
+  flex-shrink: 0;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+  background: var(--bg-elevated);
+}
+
+.carousel-card-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(28,28,28,.8));
+  padding: 32px 16px 14px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(209,194,165,.8);
+  z-index: 1;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+.carousel-btn {
+  width: 40px; height: 40px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color var(--dur-base) var(--ease), color var(--dur-base) var(--ease);
+}
+.carousel-btn:hover:not(:disabled) { background: var(--surface-1); color: var(--text-primary); }
+.carousel-btn:disabled { opacity: .28; cursor: not-allowed; }
+
+.carousel-dots { display: flex; gap: 8px; align-items: center; }
+
+.carousel-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  cursor: pointer;
+  border: none;
+  transition: background-color var(--dur-base) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.carousel-dot.is-active {
+  background: var(--accent);
+  transform: scale(1.4);
+}
+
+/* ── responsive overrides ── */
+@media (max-width: 809px) {
+  .services-split { grid-template-columns: 1fr; }
+  .services-col-left { display: none; }
+  .services-col-right { border-left: none; }
+  .service-row { position: static; min-height: auto; padding: var(--sp-10) var(--sp-6); }
+  .service-name { font-size: clamp(var(--text-2xl), 7vw, var(--text-4xl)); }
+  .cta-carousel-wrap { padding: var(--sp-10) var(--sp-6) var(--sp-6); }
+}

@@ -1,5 +1,6 @@
 import ScrollInit from "@/components/ScrollInit";
 import HeroVideo from "@/components/HeroVideo";
+import ServicesSection from "@/components/ServicesSection";
 
 /* ── DATA ─────────────────────────────────────────────────── */
 
@@ -12,61 +13,6 @@ const TOOLS = [
   "Dashboards", "Business Tools", "Automation",
 ];
 
-const SERVICES = [
-  {
-    num: "01",
-    title: "Website Design & Development",
-    desc: "Clean, modern, responsive websites built with WordPress, Webflow, Framer, or custom code — designed with clarity, speed, and usability in mind.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <path d="M8 21h8M12 17v4" />
-      </svg>
-    ),
-  },
-  {
-    num: "02",
-    title: "App Development",
-    desc: "Custom web apps, client portals, booking systems, and business dashboards that help your users and team get things done faster.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="5" y="2" width="14" height="20" rx="2" />
-        <path d="M12 18h.01" />
-      </svg>
-    ),
-  },
-  {
-    num: "03",
-    title: "Workflow Automation",
-    desc: "From forms and CRM to emails and onboarding flows — we connect the tools behind your daily work so your business moves smoother.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-      </svg>
-    ),
-  },
-  {
-    num: "04",
-    title: "Website Audit & Optimization",
-    desc: "A thorough review of your website's speed, UX, SEO, mobile experience, and conversion flow — then we fix what actually matters.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="8" />
-        <path d="M21 21l-4.35-4.35" />
-      </svg>
-    ),
-  },
-  {
-    num: "05",
-    title: "Website Management",
-    desc: "Ongoing updates, monitoring, improvements, content support, bug fixes, and optimization to keep your website healthy after launch.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
-    ),
-  },
-];
 
 const WHY_ITEMS = [
   {
@@ -249,7 +195,7 @@ export default function Home() {
         <section
           id="services"
           className="section-xl"
-          style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border)" }}
+          style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border)", paddingBottom: 0 }}
         >
           <div className="section-inner">
             <div className="section-header-row">
@@ -267,47 +213,8 @@ export default function Home() {
                 </p>
               </div>
             </div>
-
-            <div className="card-grid-3" data-scroll="fade">
-              {SERVICES.map((s, i) => (
-                <div key={s.num} className="card-inner" data-scroll data-scroll-delay={String(i + 1)}>
-                  <div className="card-body">
-                    <div className="card-icon" aria-hidden="true">
-                      {s.icon}
-                    </div>
-                    <span className="card-label">{s.num}</span>
-                    <h3 className="card-title">{s.title}</h3>
-                    <p className="card-desc">{s.desc}</p>
-                  </div>
-                </div>
-              ))}
-
-              {/* CTA card — 6th slot */}
-              <div
-                className="card-inner-accent"
-                data-scroll
-                data-scroll-delay="6"
-                style={{ padding: "var(--sp-8)" }}
-              >
-                <div>
-                  <span className="card-label">Start a Project</span>
-                  <h3
-                    className="card-title"
-                    style={{ fontSize: "var(--text-2xl)", letterSpacing: "-.03em" }}
-                  >
-                    Have a project in mind?
-                  </h3>
-                  <p className="card-desc" style={{ marginBottom: "var(--sp-8)" }}>
-                    Whether you are launching something new or improving
-                    what you already have — let&rsquo;s talk.
-                  </p>
-                </div>
-                <a href="#contact" className="btn btn-primary btn-md" style={{ alignSelf: "flex-start" }}>
-                  Book a Free Consultation
-                </a>
-              </div>
-            </div>
           </div>
+          <ServicesSection />
         </section>
 
         {/* ── WHY SKOOLEN ── */}
